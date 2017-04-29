@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.ayicomeon"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!-- 百度地图权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <!-- 允许联网 -->
+    <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
+    <!-- 获取wifi网络状态的信息 -->
+    <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <!-- 获取sd卡写的权限，用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许读取手机状态 用于创建BmobInstallation -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name="com.com.gang.aiyicomeon.inputapp.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ayi"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.com.gang.aiyicomeon.activity.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.com.gang.aiyicomeon.activity.Ayi_MainActivity" />
+        <activity android:name="com.com.gang.aiyicomeon.activity.SplashActivity" />
+        <!-- 首先要配置的融云AppKey，它应该在四大组件的外面Application的里面 -->
+        <meta-data
+            android:name="RONG_CLOUD_APP_KEY"
+            android:value="uwd1c0sxuh6a1" />
+        <!-- 此部分代码需要移植到您的 app 下的 manifest，并且 authorities 指定您的包名。例如：com.android.FileProvider -->
+        <!-- 否则使用拍照功能时，会崩溃 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.administrator.ayicomeon"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rc_file_path" />
+        </provider>
+
+        <activity android:name="com.com.gang.aiyicomeon.rongyun.Chat_main" />
+        <activity android:name="com.com.gang.aiyicomeon.rongyun.ConversationAct">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.example.administrator.ayicomeon"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="LEcDcMZNHGMrbY7AB5IGoP2EWNDbnOCG" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <activity android:name="com.com.gang.aiyicomeon.activity.LocationActivity" />
+        <activity android:name="com.com.gang.aiyicomeon.activity.RegisteredActivity" />
+        <activity android:name="com.com.gang.aiyicomeon.activity.Jiedan_xiangqing" />
+        <activity android:name="com.com.gang.aiyicomeon.activity.QiangdanAct"
+            android:theme="@style/myTransparent"/>
+        <activity
+            android:name="com.com.gang.aiyicomeon.activity.ClasstongjiAct"
+            android:theme="@style/myTransparent" />
+    </application>
+
+</manifest>

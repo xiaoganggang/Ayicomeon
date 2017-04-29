@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        realse {
+            keyAlias 'xiaogangzai'
+            keyPassword 'gang940611'
+            storeFile file('C:/Users/Administrator/Gang/gang.jks')
+            storePassword 'gang940611'
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+    defaultConfig {
+        applicationId "com.example.administrator.ayicomeon"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.realse
+        }
+    }
+}
+
+//添加本地仓库
+repositories
+        {
+            flatDir {
+                dirs 'libs'
+            }
+        }
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/xUtils-2.6.14.jar')
+    compile project(':IMKit')
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'me.zhouzhuo.zzletterssidebar:zz-letters-sidebar:1.0.2'
+    compile files('libs/BaiduLBS_Android.jar')
+    //Bmob
+    compile('cn.bmob.android:bmob-sdk:3.5.0')
+}

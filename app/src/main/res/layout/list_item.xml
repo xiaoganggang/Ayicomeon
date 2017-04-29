@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@id/tv_letter"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#e9e9e9"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:textColor="#7f7f7f"
+        android:textSize="10sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.com.gang.aiyicomeon.zidingyiview.RoundImageView
+            android:id="@+id/friend_list_touxiang"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/morentouxiang" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="7dp"
+                android:id="@+id/list_item_tv_name"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:background="@android:color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:textColor="@android:color/black"
+                android:text="12312321"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_marginBottom="7dp"
+                android:id="@+id/friend_list_num"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="20dp"
+                android:text="学号"
+                android:textColor="@android:color/black"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorSideBarBg" />
+</LinearLayout>
